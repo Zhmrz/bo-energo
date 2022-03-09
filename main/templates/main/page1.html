@@ -1,0 +1,30 @@
+{% extends 'main/layot.html' %}
+
+{% block title %} Калькулятор {% endblock %}
+
+{% block text %}
+    <div class="features">
+        <form action="page1" method="post">
+            {% csrf_token %}
+            <h2>Введите коэффициенты a, b, c</h2>
+            <p></p>
+            {{ form.a }}
+            <label for="">x^2+</label>
+            {{ form.b }}
+            <label for="">x+</label>
+            {{ form.c }}
+            <label for="">=0</label>
+            <p></p>
+            <input type="submit" class="btn btn-warning" value="Решить">
+            <style>
+                #id_a, #id_b, #id_c {
+                    width: 40px;
+                }
+            </style>
+        </form>
+        {% if ans is not empty %}
+            <p>Ответ: {{ ans }}</p>
+        {% endif %}
+
+    </div>
+{% endblock %}

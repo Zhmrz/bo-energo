@@ -1,0 +1,24 @@
+{% extends 'main/layot.html' %}
+
+{% block title %} Угадать цвет {% endblock %}
+
+{% block text %}
+    <div class="features">
+        <form action="" method="post">
+            {% csrf_token %}
+            <h2>Введите номер предмета</h2>
+            <p></p>
+            {{ form.num }}
+            <p></p>
+            <input type="submit" class="btn btn-warning" value="ОК">
+            <style>
+                #id_a, #id_b, #id_c {
+                    width: 40px;
+                }
+            </style>
+        </form>
+        {% if ans is not empty %}
+            <p>{{ ans }}</p>
+        {% endif %}
+    </div>
+{% endblock %}
